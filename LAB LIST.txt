@@ -1,5 +1,5 @@
 1. Write a Program to insert and delete an element into a linear array
-2. Write a Program to sort a linear array using the dubble sort algorithm
+2. Write a Program to sort a linear array using the bubble sort algorithm
 3. Write a Program to find an element using a linear search algorithm
 4. Write a Program to find an element using the binary search algorithm
 5. Write a Program to sort a linear array using the merge sort algorithm
