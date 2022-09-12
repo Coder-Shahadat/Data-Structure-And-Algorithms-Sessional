@@ -11,6 +11,6 @@ def knapSack(W, wt, val, n):
 
 p = [15,25,13,23]
 w = [2,6,12,9]
-c = 50
+c = 20
 n = 4
 print(knapSack(c, w, p, n))
