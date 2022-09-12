@@ -21,6 +21,6 @@ key=int(input("Enter the element: "))
 
 result = binary_search(arr, 0, len(arr)-1, key)
 if result!=-1:
-	print("Element is present at index", result)
+	print("Element is present at index", result-1)
 else:
 	print("Element is not present in array")
