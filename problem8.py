@@ -1,46 +1,43 @@
-# Author: MD.Shahdat Hossain Bhuian
+def isSafe(mat,r,c):
+    # Column check 
+    for i in range(len(mat)):
+        if mat[i][c]=='Q':
+            return False
+        
+    # diagonal check '\'
+    i,j=r,c
+    while i>=0 and j>=0:
+        if mat[i][j]=='Q':
+            return False
+        i-=1
+        j-=1
+    
+    # diagonal Check '/'
+    i,j=r,c
+    while i>=0 and j<len(mat):
+        if mat[i][j]=='Q':
+            return False
+        i-=1
+        j+=1
+    
+    return True
 
-from typing import List
-board_cnt = 0
-
-
-def IsBoardOk (chessboard : List, row : int, col : int) :
-   for c in range(col) :
-       if (chessboard[row][c] == 'Q') :
-           return False
-   for r, c in zip(range(row-1, -1, -1), range(col-1, -1, -1)) :
-       if (chessboard[r][c] == 'Q') :
-           return False
-   for r, c in zip(range(row+1, len(chessboard), 1), range(col-1, -1, -1)) :
-      if (chessboard[r][c] == 'Q') :
-          return False
-   return True
-
-
-def DisplayBoard (chessboard : List) :
-    for row in chessboard :
-        print(row)
-
-
-def PlaceNQueens (chessboard : List, col : int) :
-    global board_cnt
-    if (col >= len(chessboard)) :
-        board_cnt += 1
-        print("Board " + str(board_cnt))
-        print("==========================")
-        DisplayBoard(chessboard)
-        print("==========================\n")
-    else :
-        for row in range(len(chessboard)) :
-            chessboard[row][col] = 'Q'
-            if (IsBoardOk(chessboard, row, col) == True) :
-                PlaceNQueens(chessboard, col + 1)
-            chessboard[row][col] = '-';
+def printSolve(mat):
+    for r in mat:
+        print(str(r).replace(","," ").replace("\'"," "))
+    print()
+    
+def NQueen(mat,r=0):
+    if r==len(mat):
+        printSolve(mat)
+        return 
+    
+    for i in range(len(mat)):
+        if isSafe(mat,r,i):
+            mat[r][i]='Q'
+            NQueen(mat,r+1)
+            mat[r][i]='-'    
             
-
-chessboard = []
-N = int(input("Enter chessboard size : "))
-for i in range(N) :
-    row = ["-"] * N
-    chessboard.append(row)
-PlaceNQueens(chessboard, 0)
+N=int(input("Enter N: "))
+mat=[['-']*N for x in range(N)]
+NQueen(mat)
