@@ -14,6 +14,7 @@ def binary_search(arr, low, high, key):
 
 arr=list(map(int,input("Enter an array: ").split()))
 print("Your Array: ",arr)
+arr.sort()
 
 print("\nBinary Searching")
 key=int(input("Enter the element: "))
