@@ -30,3 +30,16 @@ for i in range(edges):
      u[i],v[i],w[i] = map(int,input().rstrip().split())
 res = kruskal(nodes,u,v,w)
 print(res)  
+
+
+
+# Input
+# 4 6
+# 1 2 5
+# 1 3 3
+# 4 1 6
+# 2 4 7
+# 3 2 4
+# 3 4 5
+# 12
+
